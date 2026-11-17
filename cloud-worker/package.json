@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Cloud execution worker for TDA Remote AI Agent",
   "engines": {
-    "node": ">=22"
+    "node": ">=24"
   },
   "scripts": {
     "start": "node --env-file-if-exists=.env src/index.js",
