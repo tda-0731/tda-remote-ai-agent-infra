@@ -8,7 +8,7 @@
     "node": ">=22"
   },
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node --env-file-if-exists=.env src/index.js",
     "check": "node --check src/index.js && node --check src/opencode.js && node --check scripts/smoke-opencode.js",
     "test:sdk": "node scripts/smoke-opencode.js"
   },
