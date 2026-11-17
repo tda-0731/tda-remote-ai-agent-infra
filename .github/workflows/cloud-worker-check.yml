@@ -1,0 +1,48 @@
+name: Cloud Worker Check
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "cloud-worker/**"
+      - ".github/workflows/cloud-worker-check.yml"
+  pull_request:
+    paths:
+      - "cloud-worker/**"
+      - ".github/workflows/cloud-worker-check.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloud-worker-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    defaults:
+      run:
+        working-directory: cloud-worker
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install --no-package-lock
+
+      - name: Check JavaScript syntax
+        run: npm run check
+
+      - name: Smoke test OpenCode SDK
+        run: npm run test:sdk
