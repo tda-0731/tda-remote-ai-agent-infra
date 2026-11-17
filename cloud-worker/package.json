@@ -1,0 +1,18 @@
+{
+  "name": "tda-remote-ai-agent-cloud-worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Cloud execution worker for TDA Remote AI Agent",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "check": "node --check src/index.js && node --check src/opencode.js && node --check scripts/smoke-opencode.js",
+    "test:sdk": "node scripts/smoke-opencode.js"
+  },
+  "dependencies": {
+    "@opencode/sdk": "2.3.0"
+  }
+}
