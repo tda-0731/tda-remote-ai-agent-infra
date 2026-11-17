@@ -38,7 +38,7 @@ The smoke test creates a temporary directory under the operating system temp dir
 
 ## Technology
 
-- Node.js 22 or newer.
+- Node.js 24 or newer.
 - OpenCode SDK.
 - GitHub Actions (planned initial cloud execution environment).
 - Temporary object storage (to be selected and configured).
