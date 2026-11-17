@@ -16,7 +16,7 @@ It runs the OpenCode SDK and processes temporary project workspaces uploaded by 
 
 ## Local development
 
-1. Copy `.env.example` to `.env` if you need to override local defaults.
+1. Optionally copy `.env.example` to `.env` to override local defaults; Node.js loads it when starting the worker.
 2. Install dependencies with `npm install`.
 3. Run syntax checks with `npm run check`.
 4. Run the SDK smoke test with `npm run test:sdk`.
